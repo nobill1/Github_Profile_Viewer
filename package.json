@@ -1,0 +1,22 @@
+{
+  "name": "github_stat_checker",
+  "version": "1.0.0",
+  "description": "A github status checker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nobill1/Github_Stat_Checker.git"
+  },
+  "keywords": [
+    "stat_checker"
+  ],
+  "author": "Nguimeya Bill-gates",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nobill1/Github_Stat_Checker/issues"
+  },
+  "homepage": "https://github.com/nobill1/Github_Stat_Checker#readme"
+}
