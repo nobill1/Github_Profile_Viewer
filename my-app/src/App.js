@@ -6,7 +6,6 @@ function App() {
   return(
     <div>
       <Form />
-      <UserCard />
     </div>
   )
 }
@@ -16,7 +15,8 @@ class Form extends React.Component {
     super()
     this.state = {
       username: '',
-      userInfo: []
+      userInfo: {},
+      isRendering: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -29,48 +29,34 @@ class Form extends React.Component {
   }
 
   handleSubmit(event) {
-
-    // axios.get(`https://api.github.com/users/${this.state.username}`)
-    // .then(response => response.data)
-    // .then(response => {
-    //   const {user} = response.data
-    //   this.setState({userInfo: user})
-    // })
-
-    axios.get(`https://api.github.com/users/${this.state.username}`).then(resp => {
-      this.handleSubmit(resp.data)
-      this.setState.username('')
-    })
-    
+    event.preventDefault()
+    const url = `https://api.github.com/users/${this.state.username}`
+    axios.get(url)
+    .then(data => this.setState({userInfo: data, isRendering: true})).then(console.log(this.state.userInfo))
   }
 
-  render() {
-    return (
-      <form>
-        <input onChange={this.handleChange}/>
-        <button onClick={this.handleSubmit}>Search</button>
-        <div>{this.state.username}</div>
-      </form>
-    )
-  } 
-}
-
-class UserCard extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-
-    }
-  }
   render() {
     return (
       <div>
-        <img alt='avatar'/>
-        <div></div>
+        <form>
+          <input onChange={this.handleChange}/>
+          <button onClick={this.handleSubmit}>Search</button>
+          <div>{this.state.username}</div>
+        </form>
+        {
+          (this.state.isRendering && 
+            <div className='userCard'>
+              <img alt='avatar'/>
+              <h3>{this.state.username}</h3>
+              <p>{this.state.userInfo.__proto__.data.bio}</p>
+              <p>{this.state.userInfo.__proto__.data.blog}</p>
+            </div>)
+        }
       </div>
     )
   } 
 }
+
 
 
 export default App;
