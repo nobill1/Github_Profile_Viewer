@@ -136,3 +136,38 @@
    margin: 20px;
  }
 
+ @media (max-width: 715px) {
+  body {
+    height: 150vh;
+  }
+
+  .mainForm h1 {
+    text-align: center;
+  }
+
+  .userCard {
+      flex-direction: column;
+  }
+
+  .userCard a {
+    margin: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .subForm form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .userCard img {
+      height: 200px;
+      width: 200px;
+  }
+
+  .userCard a {
+    margin: 15px;
+  }
+}
