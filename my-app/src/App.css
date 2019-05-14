@@ -101,6 +101,22 @@
    margin: 10px;
  }
 
+ .userCard a {
+   color: #131313;
+   align-self: center;
+ }
+
+ .userCard i {
+   font-size: 30px;
+   align-self: center;
+ }
+
+.gitLink {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
  .followSection {
    display: flex;
    justify-content: space-around;

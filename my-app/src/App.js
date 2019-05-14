@@ -65,7 +65,7 @@ class Form extends React.Component {
                   <h3>{this.state.userInfo.data.followers}</h3>
                   </div>
                 </div>
-                <i href={this.state.userInfo.data.html_url}></i>
+                <div className='gitLink'><a href={this.state.userInfo.data.html_url} target='_blank' rel="noopener noreferrer"><i className="fab fa-github"></i></a></div>
               </div>
             </div>)
         }
