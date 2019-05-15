@@ -54,6 +54,18 @@ class Form extends React.Component {
         })
       }, 1500)
     )
+    .catch((error) => {
+      console.log(error.response)
+      this.setState({isRendering: '', animation: 'animation'})
+    })
+    .then(
+      setTimeout(() => {
+        this.setState({
+          animation: ''
+        })
+      }, 1500)
+    )
+    
   }
 
   render() {
@@ -86,9 +98,9 @@ class Form extends React.Component {
             </div>)
         }
         {
-          (this.state.userInfo.status === 404) && this.state.isRendering &&
-          <div className={`userCard ${ this.state.animation }`}>
-            <p>There is no user on GitHub with the username {this.state.username}</p>
+          (this.state.isRendering === '') &&
+          <div className={`errorMessage userCard ${this.state.animation}`}>
+            <p>There is no user on GitHub with this username</p>
           </div>
         }
       </div>
