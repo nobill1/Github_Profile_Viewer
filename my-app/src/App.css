@@ -112,6 +112,11 @@
    align-self: center;
  }
 
+ .errorMessage p {
+   padding: 10px; 
+   text-align: center;
+ }
+
 .gitLink {
   display: flex;
   align-content: center;
